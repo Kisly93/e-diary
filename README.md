@@ -45,6 +45,31 @@
 - `SECRET_KEY` — секретный ключ проекта
 - `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
 - `DATABASE_NAME` — путь до базы данных, например: `schoolbase.sqlite3`
+## Использование скрипта
+Запустите интерактивный режим Django shell в Terminal:
+``` 
+python3 manage.py shell
+```
+Далее подключите скрипт:
+```
+from main import *
+```
+### Используемые функции:
+
+get_schoolkid(schoolkid_name) - возвращает объект ученика по его имени и фамилии. Если такого ученика не существует, выводит сообщение об ошибке.
+
+fix_marks(schoolkid_name) - исправляет все двойки и тройки ученика на пятёрки. Возвращает количество исправленных оценок.
+
+
+remove_chastisements(schoolkid_name) - удаляет все замечания ученика. Возвращает количество удалённых замечаний.
+
+create_commendation(schoolkid_name, lesson_name) - создаёт похвалу для ученика на случайном уроке по указанному предмету. Возвращает объект созданной похвалы.
+###Примеры запуска:
+```
+fix_marks('Иванов Иван')
+remove_chastisements('Иванов Иван')
+create_commendation('Иванов Иван','Математика')
+```
 
 ## Цели проекта
 
